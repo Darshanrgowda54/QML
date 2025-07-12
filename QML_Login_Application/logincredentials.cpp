@@ -31,9 +31,9 @@ void LoginCredentials::setPassword(const QString &newPassword)
     m_password = newPassword;
 }
 
-bool LoginCredentials::checkLoginCredentails(QString name, QString password)
+bool LoginCredentials::checkLoginCredentails(QString userName, QString password)
 {
-    if(m_userName == name && m_password == password)
+    if(m_userName == userName && m_password == password)
     {
         return 1;
     }
@@ -41,4 +41,9 @@ bool LoginCredentials::checkLoginCredentails(QString name, QString password)
     {
         return 0;
     }
+}
+
+bool LoginCredentials::accountCreated(QString userName, QString password, QString name, QString mobileNumber)
+{
+
 }

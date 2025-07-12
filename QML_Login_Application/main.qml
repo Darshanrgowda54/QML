@@ -19,7 +19,7 @@ Window {
         Text {
             id: _text
             color: "White"
-            text: qsTr("Welcome Back...")
+            text: qsTr("Welcome Back")
             font.pixelSize: 40
             anchors.top: parent.top
             anchors.topMargin: 100
@@ -27,80 +27,124 @@ Window {
             anchors.rightMargin: 100
         }
 
-        Rectangle{
-            id: _rect2
-            color: "lightgrey"
-            border.color: "lightgrey"
+        TextField {
+            id: _userInput
             width: 400
             height: 50
-            radius: 180
+            placeholderText: "Username"
+            placeholderTextColor: "black"
+            font.pixelSize: 18
+            color: "black"
+
+            padding: 15
             anchors.top: _text.bottom
             anchors.topMargin: 30
             anchors.right: parent.right
             anchors.rightMargin: 50
+
+            background: Rectangle {
+                color: "lightgrey"
+                radius: 180
+            }
         }
 
-        Rectangle{
-            id: _rect3
-            color: "lightgrey"
-            border.color: "lightgrey"
+        TextField{
+            id: _Password
             width: 400
             height: 50
-            radius: 180
-            anchors.top: _rect2.bottom
+            placeholderText: "Password"
+            placeholderTextColor: "black"
+            font.pixelSize: 18
+            color: "Black"
+
+            padding: 15
+            anchors.top: _userInput.bottom
             anchors.topMargin: 30
             anchors.right: parent.right
             anchors.rightMargin: 50
+
+            background: Rectangle {
+                color: "lightgrey"
+                radius: 180
+            }
         }
 
-        Text {
+        Button {
             id: _forget_Password
-            text: qsTr("Forget Password")
-            color: "lightgrey"
-            anchors.top: _rect3.bottom
+            text: "Forget Password"
+            font.pixelSize: 20
+            anchors.top: _Password.bottom
             anchors.topMargin: 20
             anchors.right: parent.right
             anchors.rightMargin: 50
+
+            background: Rectangle {
+                color: "transparent"
+            }
+
+            contentItem: Text {
+                text: qsTr("Forget Password")
+                color: "lightgrey"
+                font.pixelSize: 16
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+            anchors.fill: parent
+            }
+
+            onClicked: {
+                console.log("Clicked",text)
+            }
         }
 
-        Rectangle{
-            id: _rect4
-            color: "purple"
+        Button{
+            id: _Login
             width: 400
             height: 50
-            radius: 180
+            text: "Login"
+            font.pixelSize: 20
             anchors.top: _forget_Password.bottom
             anchors.topMargin: 30
             anchors.right: parent.right
             anchors.rightMargin: 50
 
-            Text {
-                id: _login
-                text: qsTr("Login")
-                color: "White"
-                font.pixelSize: 18
-                anchors.centerIn: parent
+            background: Rectangle{
+                color: "Purple"
+                radius: 180
+            }
+
+            onClicked: {
+                let username = _userInput.text
+                let password = _Password.text
+
+                if (loginBackend.checkLoginCredentails(username, password)) {
+                    console.log("Login successful")
+                } else {
+                    console.log("Invalid credentials")
+                }
             }
         }
 
-        Rectangle{
-            id: _rect5
-            color: "#2C2C2C"
-            border.color: "White"
+        Button{
+            id: _Sign_up
             width: 400
             height: 50
-            radius: 180
-            anchors.top: _rect4.bottom
+            anchors.top: _Login.bottom
             anchors.topMargin: 30
             anchors.right: parent.right
             anchors.rightMargin: 50
 
-            Text {
-                id: _Sign_up
-                text: qsTr("Sign up for an account")
-                color: "White"
-                font.pixelSize: 18
-                anchors.centerIn: parent
+            background: Rectangle {
+                color: "#2C2C2C"
+                border.color: "White"
+                border.width: 2
+                radius: 180
+            }
+
+            text: "Sign up for an account"
+            font.pixelSize: 20
+
+            onClicked: {
+                console.log("Clicked",text)
             }
         }
 
