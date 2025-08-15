@@ -15,11 +15,11 @@ Student::Student(QObject *parent)
 
 Student::~Student()
 {
-    qDebug()<<Q_FUNC_INFO;
-    for (Student* s : std::as_const(m_studentList)) {
-        delete s;
-    }
-    m_studentList.clear();
+    // qDebug()<<Q_FUNC_INFO;
+    // for (Student* s : std::as_const(m_studentList)) {
+    //     delete s;
+    // }
+    // m_studentList.clear();
 }
 
 QString Student::getUserName() const
@@ -99,11 +99,11 @@ QString Student::getPhoneNumber() const
 
 void Student::setPhoneNumber(QString newMobileNumber)
 {
-    // qDebug()<<Q_FUNC_INFO;
+    qDebug()<<Q_FUNC_INFO;
 
-    if (newMobileNumber == newMobileNumber)
+    if (m_phoneNumber == newMobileNumber)
         return;
-    newMobileNumber = newMobileNumber;
+    m_phoneNumber = newMobileNumber;
     emit phoneNumberChanged();
 }
 
@@ -162,53 +162,3 @@ void Student::onConfirmPasswordChanged()
     qDebug()<<Q_FUNC_INFO<<"ConfirmPassword: "<<m_confirmPassword;
 }
 
-
-bool Student::addStudent(const QString &studentName, const QString &phoneNumber, const QString &fatherName, const QString &email, const QString &password, const QString &confirmPassword)
-{
-    qDebug()<<Q_FUNC_INFO;
-
-    if (studentName.isEmpty() || phoneNumber.isEmpty() || fatherName.isEmpty() || email.isEmpty() ||
-        password.isEmpty() || confirmPassword.isEmpty()) {
-        qDebug() << "No Empty Fields are Allowed";
-        return false;
-    }
-
-    if (password.length() < 8) {
-        qDebug() << "Password must be at least 8 characters long";
-        return false;
-    }
-
-    if (password != confirmPassword) {
-        qDebug() << "Passwords do not match";
-        return false;
-    }
-
-    Student* newStudent = new Student(this);
-    newStudent->setUserName(studentName);
-    newStudent->setPhoneNumber(phoneNumber);
-    newStudent->setFatherName(fatherName);
-    newStudent->setEmail(email);
-    newStudent->setPassword(password);
-    newStudent->setConfirmPassword(confirmPassword);
-
-    m_studentList.append(newStudent);
-
-    emit registrationSuccess();
-    qDebug() << "Student added Total students:" << m_studentList.size();
-    return true;
-}
-
-bool Student::checkLoginInfo(const QString &email, const QString &password)
-{
-    qDebug()<<Q_FUNC_INFO;
-
-    for (Student* s : std::as_const(m_studentList)) {
-        if(s->m_email == email && s->m_password == password){
-            qDebug() << "Login Successfull.";
-            emit loginSuccess();
-            return true;
-        }
-    }
-    qDebug() << "Login failed or Invalid User";
-    return false;
-}

@@ -1,11 +1,11 @@
-#include "Student.h"
+#include "StudentDataModel.h"
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 
 int main(int argc, char *argv[])
 {
-    Student loginHandler;
+    StudentDataModel loginHandler;
     QGuiApplication app(argc, argv);
 
     QQmlApplicationEngine engine;

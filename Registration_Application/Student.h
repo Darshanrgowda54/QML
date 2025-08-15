@@ -37,11 +37,6 @@ public:
     QString getConfirmPassword() const;
     void setConfirmPassword(const QString &newConfirmPassword);
 
-    Q_INVOKABLE bool addStudent(const QString &studentName,const QString &phoneNumbe, const QString &fatherName, const QString &email,
-                                const QString &password, const QString &confirmPassword);
-
-    Q_INVOKABLE bool checkLoginInfo(const QString &email, const QString &password);
-
 public slots:
     void onUserNameChanged();
     void onFatherNameChanged();
@@ -58,9 +53,6 @@ signals:
     void phoneNumberChanged();
     void confirmPasswordChanged();
 
-    void registrationSuccess();
-    void loginSuccess();
-
 private:
     QString m_userName;
     QString m_fatherName;
@@ -68,8 +60,6 @@ private:
     QString m_confirmPassword;
     QString m_email;
     QString m_phoneNumber;
-
-    QList<Student*> m_studentList;
 };
 
 #endif // STUDENT_H

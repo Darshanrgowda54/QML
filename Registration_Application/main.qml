@@ -22,7 +22,7 @@ Window {
     Connections{
         target: pageLoader.item
 
-        function onSignInClicked(){
+        function onSignInClicked() {
             pageLoader.source = "LoginPage.qml"
         }
 
@@ -30,16 +30,21 @@ Window {
             pageLoader.source = "RegisterPage.qml"
         }
 
+        function onStudentDataListClicked() {
+            pageLoader.source = "StudentDataList.qml"
+        }
+
         // function onSubmitButtonClicked(){
         // }
 
-        function onCancelButtonClicked(){
+        function onCancelButtonClicked() {
             pageLoader.source = "HomePage.qml"
         }
 
-        function onBackButtonClicked(){
+        function onBackButtonClicked() {
             pageLoader.source = "HomePage.qml"
         }
+
     }
 
     Connections{

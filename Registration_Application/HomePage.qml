@@ -9,6 +9,7 @@ Rectangle{
 
     signal signInClicked()
     signal signUpClicked()
+    signal studentDataListClicked()
 
     Column {
         id: homePageColoum
@@ -23,7 +24,7 @@ Rectangle{
             anchors.horizontalCenter: parent.horizontalCenter
         }
 
-        Button{
+        Button {
             id: signIn
             width: homePage.width / 2
             height: 50
@@ -51,7 +52,7 @@ Rectangle{
             }
         }
 
-        Button{
+        Button {
             id: signUp
             width: homePage.width / 2
             height: 50
@@ -78,5 +79,34 @@ Rectangle{
                 radius: 180
             }
         }
+
+        Button {
+            id: viewDataList
+            width: homePage.width / 2
+            height: 50
+
+            Text {
+                id: viewDataLabel
+                text: qsTr("View Student Data")
+                anchors.centerIn: parent
+                font.bold: true
+                font.pixelSize: 20
+                color: "Black"
+            }
+
+            onClicked: {
+                console.log("StudentDataList Button Cicked")
+                studentDataListClicked()
+            }
+
+            background: Rectangle{
+                color: viewDataList.pressed ? "#5A5A5A" : "transparent"
+                anchors.fill: viewDataList
+                border.color: "Black"
+                border.width: 2
+                radius: 180
+            }
+        }
     }
 }
+
