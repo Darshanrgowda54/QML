@@ -5,6 +5,7 @@
 class LoginCredentials:public QObject
 {
     Q_OBJECT
+
 public:
     LoginCredentials();
     ~LoginCredentials();
@@ -17,6 +18,7 @@ public:
 
     Q_INVOKABLE bool checkLoginCredentails(QString userName,QString password);
     Q_INVOKABLE bool accountCreated(QString userName, QString password,QString name, QString mobileNumber);
+
 
 private:
     QString m_userName;

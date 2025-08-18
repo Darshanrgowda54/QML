@@ -3,12 +3,12 @@
 
 LoginCredentials::LoginCredentials()
 {
-    qInfo();
+    qDebug()<<Q_FUNC_INFO;
 }
 
 LoginCredentials::~LoginCredentials()
 {
-    qDebug("Login Credentails Destructor");
+    qDebug()<<Q_FUNC_INFO;
 }
 
 void LoginCredentials::setUserName(const QString &newUserName)
@@ -33,6 +33,8 @@ void LoginCredentials::setPassword(const QString &newPassword)
 
 bool LoginCredentials::checkLoginCredentails(QString userName, QString password)
 {
+    qDebug()<<Q_FUNC_INFO;
+
     if(m_userName == userName && m_password == password)
     {
         return 1;
@@ -45,5 +47,12 @@ bool LoginCredentials::checkLoginCredentails(QString userName, QString password)
 
 bool LoginCredentials::accountCreated(QString userName, QString password, QString name, QString mobileNumber)
 {
+    qDebug() << Q_FUNC_INFO;
 
+    m_userName = userName;
+    m_password = password;
+    m_name = name;
+    m_mobileNumber = mobileNumber;
+
+    return true;
 }

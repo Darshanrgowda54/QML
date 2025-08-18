@@ -10,8 +10,8 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
 
     LoginCredentials loginBackend;
-    loginBackend.setUserName("admin");
-    loginBackend.setPassword("1234");
+    loginBackend.setUserName("1");
+    loginBackend.setPassword("1");
 
     engine.rootContext()->setContextProperty("loginBackend", &loginBackend);
 
