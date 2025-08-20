@@ -48,9 +48,6 @@ Rectangle {
                 console.log("Add Contact Button Clicked")
                 addContactButtonClicked()
             }
-
-            onPressed: addContactButton.scale = 0.8
-            onReleased: addContactButton.scale = 1.0
         }
     }
 
@@ -73,10 +70,6 @@ Rectangle {
             radius: 180
             color: "#2A2A2A"
             border.color: "#BB86FC"
-        }
-
-        onTextChanged: {
-            ContactDataModel.filterContacts(text)
         }
     }
 }

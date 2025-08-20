@@ -17,14 +17,12 @@ public:
     QVariant data(const QModelIndex &index, int role) const;
     QHash<int, QByteArray> roleNames() const;
 
-    // void add();
+    void add();
 
     Q_INVOKABLE void addContact(const QString &name,
                                 const QString &phoneNumber,
                                 const QString &email,
                                 const QString &imagePath);
-
-    // Q_INVOKABLE void filterContacts(const QString &searchTerm);
 
 
     enum contactDataModel {
@@ -37,7 +35,6 @@ public:
 
 private:
     QList<Contact*> m_contactList;
-    QList<Contact*> m_filtercontactList;
 };
 
 #endif // CONTACTDATAMODEL_H

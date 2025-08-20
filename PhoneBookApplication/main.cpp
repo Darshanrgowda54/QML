@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
     QQmlContext* context = engine.rootContext();
     context->setContextProperty("ContactDataModel",&contactDataModel);
-    // contactDataModel.add();
+    contactDataModel.add();
 
     const QUrl url(QStringLiteral("qrc:/main.qml"));
     QObject::connect(

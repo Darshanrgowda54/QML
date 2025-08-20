@@ -41,15 +41,12 @@ Rectangle {
             id: background
             width: contactList.width
             height: 70
-            color: pressed ? "royalBlue" : "#1E1E1E"
+            color:"#1E1E1E"
             radius: 12
 
-            property bool pressed: false
 
             MouseArea {
                 anchors.fill: parent
-                onPressed: background.pressed = true
-                onReleased: background.pressed = false
 
                 onClicked: {
                     contactList.contactClicked(name,imagePath, phoneNumber, email)

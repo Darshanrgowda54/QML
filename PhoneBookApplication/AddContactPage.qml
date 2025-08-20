@@ -34,25 +34,12 @@ Rectangle {
         anchors.rightMargin: 30
 
         onClicked: {
-            // ContactDataModel.addContact(
-            //             nameField.text,
-            //             numberField.text,
-            //             emailField.text,
-            //             profileImg.source
-            //             )
-            if (nameField.text.trim() === "" ||
-                numberField.text.trim() === "" ||
-                emailField.text.trim() === "") {
-                console.warn("All fields are required!");
-                return;
-            }
-
             ContactDataModel.addContact(
-                nameField.text,
-                numberField.text,
-                emailField.text,
-                profileImg.source
-            )
+                        nameField.text,
+                        numberField.text,
+                        emailField.text,
+                        profileImg.source
+                        )
             saveButtonClicked()
             console.log("Save Button Clicked")
         }
@@ -170,10 +157,6 @@ Rectangle {
                 id: emailField
                 label: "Email"
                 placeholder: "Enter email"
-
-                checkValidator: RegularExpressionValidator {
-                    regularExpression: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
-                }
             }
         }
     }
