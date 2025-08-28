@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>ContactProfilePage.qml</file>
+        <file>AddContactPage.qml</file>
+        <file>Image/AddProfile.png</file>
+        <file>ContactListPage.qml</file>
+        <file>HeaderPage.qml</file>
+        <file>Image/Boy.png</file>
+        <file>CustomButton.qml</file>
+        <file>CustomTextField.qml</file>
+    </qresource>
+</RCC>
