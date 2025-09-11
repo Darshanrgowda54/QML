@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Image/Boy.png</file>
+        <file>Image/Calls.png</file>
+        <file>Image/Camera.png</file>
+        <file>Image/Chats.png</file>
+        <file>Image/Communities.png</file>
+        <file>Image/Scanner.png</file>
+        <file>Image/Settings.png</file>
+        <file>Image/Updates.png</file>
+    </qresource>
+</RCC>
